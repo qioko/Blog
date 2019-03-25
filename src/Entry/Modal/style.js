@@ -244,12 +244,13 @@ export const CancelButton = styled.button`
   line-height: 40px;
   text-align: center;
   font-weight: bold;
+  cursor: pointer;
   overflow: hidden;
   opacity: 0;
 
   &::after {
     position: relative;
-    content: "重播";
+    content: "重拨";
     display: block;
     color: #E48089;
     transition: all .35s ease 0s;

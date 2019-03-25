@@ -6,13 +6,28 @@
   width: 50%; height: 22%;
   transition: 1s;
   &.super-me {
-    height: 100%;
+    height: 60%;
+    &.super-image {
+      height: 90%;
+    }
     .image {
       animation: remain-image 1s ease forwards;
+      &.content-image {
+        animation: content-image 1s ease forwards;
+        &:hover {
+          &:after {
+            background-color: transparent;
+          }
+        }
+      }
     }
   }
   &.no-me {
     display: none;
+  }
+
+  * {
+    box-sizing: border-box;
   }
 
   .image {
@@ -20,9 +35,10 @@
     background-size: cover;
     animation: image 4s ease 1s forwards;
     width: 0; height: 0;
-    box-sizing: border-box;
     cursor: pointer;
-
+    &.content-image {
+      background-size: contain;
+    }
 
     &:after {
       content: ""; display: block;
@@ -34,6 +50,19 @@
       &:after {
         background-color: rgba(179, 170, 167, 0.164);
       }
+    }
+  }
+
+  .description {
+    position: absolute;
+    background-color: #fff;
+    cursor: pointer;
+    width: 96%; height: 66%; bottom:10%; left: 2%; border-radius: 15px;  border: solid 3px #fff;
+    &.disappear {
+      display: none;
+    }
+    .text {
+      margin: 6px 12px;
     }
   }
   .spin {
@@ -74,12 +103,16 @@
 *******************************************************************/
 @keyframes image {
   0% { width: 0; height: 0; top:50%; left: 50%; border-radius: 50%; border: solid 0 #fff;}
-  60% { width: 20vh; height: 20vh; top: calc(50% - 10vh); left: calc(50% - 10vh); border-radius: 50%; border: solid 0 #fff; } 
+  60% { width: 20vh; height: 20vh; top: calc(50% - 10vh); left: calc(50% - 10vh); border-radius: 15px; border: solid 3px #fff; } 
   100% { width: 100%; height: 100%; top:0; left: 0; border-radius: 15px;  border: solid 3px #fff; }
 }
 @keyframes remain-image {
   from { width: 100%; height: 100%; top:0; left: 0; border-radius: 15px;  border: solid 3px #fff; }
-  to   { width: 100%; height: 22%; top:0; left: 0; border-radius: 15px;  border: solid 3px #fff; } 
+  to   { width: 100%; height: 22%; top:0; left: 0; border-radius: 15px; border-bottom-right-radius: 0; border-bottom-left-radius: 0;  border: solid 3px #fff; } 
+}
+@keyframes content-image {
+  from { width: 100%; height: 100%; background-repeat: no-repeat;background-position:center; background-size: contain; border-radius: 15px;  border: solid 3px #fff; }
+  to   { width: 100%; height: 100%; background-repeat: no-repeat;background-position:center; background-size: contain; border-radius: 15px; border: solid 3px #fff; } 
 }
 @keyframes scale0-1 {
   from { transform: scale(0); }

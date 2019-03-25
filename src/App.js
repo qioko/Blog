@@ -8,19 +8,23 @@ class App extends Component {
   constructor(){
     super()
     this.state={
-      hasContent:true,
+      hasContent:false,
+      hasEntry:true,
     }
   }
 
   showContent = () => {
     this.setState({hasContent:true})
   }
+  showEntry = () => {
+    this.setState({hasEntry:false},()=>this.setState({hasEntry:true}))
+  }
   
   render() {
-    const { hasContent } = this.state
+    const { hasContent, hasEntry } = this.state
     return (
       <div className="App">
-        {/* <Entry showContent={this.showContent}/> */}
+        {hasEntry && <Entry showContent={this.showContent} showEntry={this.showEntry}/>}
         {hasContent && <Content/>}
         {/* <BeginAnimation /> */}
       </div>

@@ -36,7 +36,7 @@ export default class MessageBox extends Component {
           </Description>
           <ButtonWrapper>
             <OkButton onClick={this.props.showContent}/>
-            <CancelButton />
+            <CancelButton onClick={this.props.showEntry}/>
           </ButtonWrapper>
           <CloseButton />
         </Card>
