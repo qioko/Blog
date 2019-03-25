@@ -26,7 +26,7 @@ class App extends Component {
       <div className="App">
         {hasEntry && <Entry showContent={this.showContent} showEntry={this.showEntry}/>}
         {hasContent && <Content/>}
-        {/* <BeginAnimation /> */}
+        <BeginAnimation />
       </div>
     );
   }

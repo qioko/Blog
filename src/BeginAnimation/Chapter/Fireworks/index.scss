@@ -2,7 +2,8 @@
   .sky {
     position: absolute;
     width: 100%; height: 100%;
-    background-color: #D3C7C0;
+    background-color: transparent;
+    pointer-events: none;
   }
   .sky:before,
   .sky:after { position: absolute; content: ""; display: block; }
@@ -10,7 +11,7 @@
   .sky:before {
     top: 20px; left: 20px;
     width: calc(100% - 40px); height: calc(100% - 40px);
-    border: dashed 5px #635256;
+    border: dashed 5px #e6d7ac;
     border-radius: 30px;
     box-sizing: border-box;
     opacity: 0.3;
@@ -19,7 +20,7 @@
     width: 400px; height: 400px;
     top: calc(50% - 200px); left: calc(50% - 200px);
     border-radius: 50%;
-    background-color: #635256;
+    background-color: #84d4ca;
   }
   
   
@@ -42,14 +43,11 @@
       position: absolute;
       opacity: 0;
     }
-    .firework div:nth-child(1) { transform: rotate(0deg);   }
-    .firework div:nth-child(2) { transform: rotate(45deg);  }
-    .firework div:nth-child(3) { transform: rotate(90deg);  }
-    .firework div:nth-child(4) { transform: rotate(135deg); }
-    .firework div:nth-child(5) { transform: rotate(180deg); }
-    .firework div:nth-child(6) { transform: rotate(225deg); }
-    .firework div:nth-child(7) { transform: rotate(270deg); }
-    .firework div:nth-child(8) { transform: rotate(315deg); }
+
+    @for $i from 1 through 8 {
+      .firework div:nth-child(#{$i}) { transform: rotate(#{$i * 45 - 45}deg);   }
+
+    }
   
   
     /*** type_1 ***/
@@ -58,7 +56,7 @@
     }
     .type_1 div:after {
       top: 5px; left: calc(50% - 20px);
-      border-top: solid 70px #635256;
+      border-top: solid 70px #84d4ca;
       border-left: solid 20px transparent;
       border-right: solid 20px transparent;
       transform: translateY(130px);
@@ -71,7 +69,7 @@
   .type_2 div:after {
     top: 0px; left: calc(50% - 40px);
     width: 40px; height: 40px;
-    background-color: #8db3b1;
+    background-color: #e7a477;
     border-radius: 50%;
     transform: translateY(170px);
   }
@@ -83,7 +81,7 @@
   .type_3 div:after {
     top: 0px; left: calc(50% - 20px);
     width: 40px; height: 40px;
-    background-color: #9994A6;
+    background-color: rgb(160, 141, 209);
     transform: translateY(150px);
   }
   
@@ -95,26 +93,31 @@
   /*** sky ***/
   .sky:after { animation: hidden-ball 0.6s ease 0s forwards; }
   
+
+
+
+  $in: 0.4s;
+  $out: 0.8s;
   /*** type_1 ***/
   .type_1 div:after {
     animation:
-      fadein 0.3s ease 0.5s forwards,
-      show-type-1 0.6s ease 0.5s forwards;
+      fadein $in ease 0.5s forwards,
+      show-type-1 $out ease 0.5s forwards;
   }
   
   /*** type_2 ***/
   .type_2 { animation: rotate360 4s ease 0.6s forwards; }
   .type_2 div:after {
     animation:
-      fadein 0.3s ease 1.1s forwards,
-      show-type-2 0.6s ease 1.1s forwards;
+      fadein $in ease 1.1s forwards,
+      show-type-2 $out ease 1.1s forwards;
   }
   
   /*** type_3 ***/
   .type_3 div:after {
     animation:
-      fadein 0.3s ease 1.7s forwards,
-      show-type-3 0.6s ease 1.7s forwards;
+      fadein $in ease 1.7s forwards,
+      show-type-3 $out ease 1.7s forwards;
   }
   
   

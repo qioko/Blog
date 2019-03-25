@@ -6,6 +6,14 @@
   width: 100%;
   height: 100%;
 }
+.list-rect:before {
+  top: 20px; left: 20px;
+  width: calc(100% - 40px); height: calc(100% - 40px);
+  border: dashed 5px #635256;
+  border-radius: 30px;
+  box-sizing: border-box;
+  opacity: 0.3;
+}
 .list-rect div {
   width: 100%;
   height: 20%;

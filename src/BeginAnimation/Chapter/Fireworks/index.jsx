@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './index.css';
+import './index.scss';
 
 export default class BeginAnimation extends Component {
   firework = [1,1,1,1,1,1,1,1] //TODO 扩展角度数量

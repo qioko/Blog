@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './index.scss';
 
-export default class List extends Component {
+export default class BoxGenerator extends Component {
   onSwitch=()=>{
     const { content,display,onSwitch } = this.props
     if (display==='ALL') {
@@ -20,13 +20,12 @@ export default class List extends Component {
       : "description disappear"
     const showContentImage = display === content.name && content.type === "image"
     const image = showContentImage?"image content-image":"image"
-    console.log(image)
     return (
       <div className={box}>
         {[1,1,1,1,1].map(()=><div className="spin"/>)}
         <div className={image} style={{backgroundImage: showContentImage?`url(${content.contentUrl})`:`url(${content.imgUrl})`}}
         onClick={this.onSwitch}/>
-        <div className={description} onClick={this.onSwitch}>
+        <div className={description}>
           <div className="text">
             <a href={content.link} target="_blank">{content.description}</a></div>
         </div>
